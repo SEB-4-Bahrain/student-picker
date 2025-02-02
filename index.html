@@ -14,52 +14,47 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
 
     #container {
       text-align: center;
     }
 
-    ul li:first-child:not(.done) {
-      font-size: 50px;
-      color: green;
-      margin-bottom: 15px;
+    ul {
+      padding: 0;
     }
 
     li {
       list-style: none;
-      animation: twirl 1s;
-    }
-
-    @keyframes twirl {
-      0% {
-        transform-origin: center;
-        transform: rotate3d(0, 0, 1, -200deg);
-        opacity: 0;
-      }
-
-      100% {
-        transform-origin: center;
-        transform: none;
-        opacity: 1;
-      }
+      margin: 10px 0;
     }
 
     button {
-      position: fixed;
-      top: 15px;
-      left: 15px;
+      margin: 10px;
       font-size: 20px;
-      padding: 20px;
+      padding: 10px;
+    }
+
+    a {
+      margin-top: 20px;
+      font-size: 18px;
+      text-decoration: none;
+      color: blue;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
-  <button id="pick">Next SEI<br>Contestant</button>
+  <button id="pick">Next SEB<br>Contestant</button>
   <div id="container">
     <ul id="picked"></ul>
   </div>
+  <a href="group-picker.html">Go to Group Picker</a>
 
   <script type="text/javascript">
     const students = [
@@ -108,13 +103,13 @@
     });
 
     function refreshStudents() {
-      filteredStudents = students.slice(); // Directly assign the student list
+      filteredStudents = students.slice();
       pickedList.innerHTML = "<li>Who's First?</li>";
       first = true;
     }
 
     function init() {
-      refreshStudents(); // Initialize without any campus or pod logic
+      refreshStudents();
     }
 
     init();
